@@ -1,5 +1,5 @@
 author = AlurienFlame
 version = 1.0
 displayName = Starflower
-buildIgnore = *.csproj, obj\*, bin\*, .vs\*
+buildIgnore = .gitignore, .gitattributes, .git, *.user, *.csproj, obj\*, bin\*, .vs\*
 

@@ -41,7 +41,7 @@ namespace Starflower
             for (int i = 0; (float)i < numTilesToUpdate; i++)
             {
                 // Very low chance
-                if (Main.rand.Next(500) == 0 && Main.rand.Next(starflowerGenerateChance) == 0)
+                if (Main.rand.Next(1000) == 0 && Main.rand.Next(starflowerGenerateChance) == 0)
                 {
                     GenerateOneStarflower(skyOnly: false);
                 }

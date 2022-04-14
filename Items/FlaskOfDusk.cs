@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 
 namespace Starflower.Items
 {
@@ -14,35 +13,30 @@ namespace Starflower.Items
 
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 26;
-            item.useStyle = ItemUseStyleID.EatingUsing;
-            item.useAnimation = 17;
-            item.useTime = 17;
-            item.useTurn = true;
-            item.UseSound = SoundID.Item3;
-            item.maxStack = 30;
-            item.consumable = true;
-            item.rare = 1;
-            item.value = 80;
-        }
-
-        public override bool UseItem(Player player)
-        {
-            player.AddBuff(BuffType<Buffs.Dusk>(), 36000);
-            return true;
+            Item.width = 16;
+            Item.height = 26;
+            Item.useStyle = ItemUseStyleID.DrinkLiquid;
+            Item.useAnimation = 17;
+            Item.useTime = 17;
+            Item.useTurn = true;
+            Item.UseSound = SoundID.Item3;
+            Item.maxStack = 30;
+            Item.consumable = true;
+            Item.rare = ItemRarityID.Blue;
+            Item.value = 80;
+            Item.buffType = ModContent.BuffType<Buffs.Dusk>();
+            Item.buffTime = 36000;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.BottledWater);
-            recipe.AddIngredient(ItemID.Daybloom);
-            recipe.AddIngredient(ItemID.Moonglow);
-            recipe.AddIngredient(mod, "Starflower");
-            recipe.AddTile(TileID.ImbuingStation);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            ModContent.GetInstance<StarlightPotion>().CreateRecipe()
+                .AddIngredient(ItemID.BottledWater)
+                .AddIngredient(ItemID.Daybloom)
+                .AddIngredient(ItemID.Moonglow)
+                .AddIngredient<Starflower>()
+                .AddTile(TileID.ImbuingStation)
+                .Register();
         }
     }
 }

@@ -1,15 +1,15 @@
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
+// TODO: Should drop from herb bags
 
 namespace Starflower.Items {
     public class Starflower : ModItem {
 
         public override void SetDefaults() {
-            item.maxStack = 99;
-            item.width = 14;
-            item.height = 18;
-            item.value = 80;
+            Item.maxStack = 999;
+            Item.width = 14;
+            Item.height = 18;
+            Item.value = 80;
         }
     }
 }

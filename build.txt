@@ -1,5 +1,5 @@
 author = AlurienFlame
-version = 1.1
+version = 1.2
 displayName = Starflower
 includeSource = true
 homepage = https://github.com/AlurienFlame/Starflower

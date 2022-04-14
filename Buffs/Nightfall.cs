@@ -5,7 +5,7 @@ namespace Starflower.Buffs
 {
     class Nightfall : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Nightfall");
             Description.SetDefault("It's your bedtime.");

@@ -6,7 +6,7 @@ namespace Starflower.Buffs
     public class Starlight : ModBuff
     {
 
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Starlight");
             Description.SetDefault("Twinkle twinkle little star.");

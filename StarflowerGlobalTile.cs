@@ -11,7 +11,7 @@ namespace Starflower
         {
             if (type == TileID.ImmatureHerbs)
             {
-                if (Main.tile[i, j].type == TileType<Tiles.Starflower>())
+                if (Main.tile[i, j].TileType == TileType<Tiles.Starflower>())
                 {
                     return false;
                 }

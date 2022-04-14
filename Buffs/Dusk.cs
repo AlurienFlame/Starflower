@@ -5,7 +5,7 @@ namespace Starflower.Buffs
 {
     class Dusk : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Weapon Imbue: Dusk");
             Description.SetDefault("Melee attacks put your foes to sleep");

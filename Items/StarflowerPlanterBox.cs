@@ -15,30 +15,29 @@ namespace Starflower.Items
 
         public override void SetDefaults()
         {
-            item.maxStack = 999;
-            item.width = 24;
-            item.height = 20;
-            item.value = 100;
-            item.autoReuse = true;
-            item.useTurn = true;
-            item.useStyle = 1;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.consumable = true;
-            item.createTile = mod.TileType("StarflowerPlanterBox");
+            Item.maxStack = 999;
+            Item.width = 24;
+            Item.height = 20;
+            Item.value = 100;
+            Item.autoReuse = true;
+            Item.useTurn = true;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.consumable = true;
+            Item.createTile = TileType<Tiles.StarflowerPlanterBox>();
         }
 
         public override void AddRecipes()
         {
             if (GetInstance<StarflowerServerConfig>().isPlanterBoxCraftingEnabled)
             {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ItemID.DirtBlock, 2);
-                recipe.AddRecipeGroup("Wood", 2);
-                recipe.AddIngredient(mod, "StarflowerSeeds");
-                recipe.AddTile(TileID.WorkBenches);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                GetInstance<StarflowerPlanterBox>().CreateRecipe()
+                    .AddIngredient(ItemID.DirtBlock, 2)
+                    .AddRecipeGroup("Wood", 2)
+                    .AddIngredient<StarflowerSeeds>()
+                    .AddTile(TileID.WorkBenches)
+                    .Register();
             }
         }
     }

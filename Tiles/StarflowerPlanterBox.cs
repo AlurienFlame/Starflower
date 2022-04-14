@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 // TODO: Herbs should not be possible to cut with weapon swings when on this.
-// TODO: Make weeds grow on this.
+// TODO: Should grow weeds.
 // TODO: Make smart cursor treat this like a planter box.
 // TODO: Allow vanilla herbs to be placed on this.
 
@@ -9,14 +9,14 @@ namespace Starflower.Tiles
 {
     public class StarflowerPlanterBox : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileSolidTop[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileTable[Type] = true;
             Main.tileSpelunker[Type] = true;
-            drop = mod.ItemType("StarflowerPlanterBox");
+            ItemDrop = ModContent.ItemType<Items.StarflowerPlanterBox>();
         }
 
         public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak)
@@ -28,23 +28,23 @@ namespace Starflower.Tiles
             {
                 return false;
             }
-            bool isLeftSame = left.type == tile.type;
-            bool isRightSame = right.type == tile.type;
+            bool isLeftSame = left.TileType == tile.TileType;
+            bool isRightSame = right.TileType == tile.TileType;
             if (isLeftSame && isRightSame)
             {
-                tile.frameX = 18;
+                tile.TileFrameX = 18;
             }
             else if (isLeftSame && !isRightSame)
             {
-                tile.frameX = 36;
+                tile.TileFrameX = 36;
             }
             else if (!isLeftSame && isRightSame)
             {
-                tile.frameX = 0;
+                tile.TileFrameX = 0;
             }
             else
             {
-                tile.frameX = 54;
+                tile.TileFrameX = 54;
             }
             return true;
         }

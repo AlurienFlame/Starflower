@@ -1,6 +1,5 @@
 using Terraria.ModLoader;
 using Terraria;
-using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 
 namespace Starflower
@@ -36,7 +35,7 @@ namespace Starflower
         // Ranged weapons with melee damage type.
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
         {
-            if ((proj.melee) && hasDusk && !proj.noEnchantments)
+            if ((proj.DamageType == DamageClass.Melee) && hasDusk && !proj.noEnchantments)
             {
                 ApplyNightfall(target);
             }

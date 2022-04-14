@@ -6,7 +6,7 @@ namespace Starflower.Buffs
     public class ShootingStar : ModBuff
     {
 
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Shooting Star");
             Description.SetDefault("20% increased bullet damage");

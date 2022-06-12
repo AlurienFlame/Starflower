@@ -53,8 +53,7 @@ namespace Starflower.Tiles
             TileObjectData.addTile(Type);
 
             // Sound
-            SoundType = SoundID.Grass;
-            SoundStyle = 0;
+            HitSound = SoundID.Grass;
         }
 
         // Directly copied from example mod
